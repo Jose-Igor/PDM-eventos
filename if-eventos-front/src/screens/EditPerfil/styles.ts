@@ -3,7 +3,6 @@ import {StyleSheet} from 'react-native';
 export const styles = StyleSheet.create({
   container: {
     flex:1,
-    paddingHorizontal:20,
     backgroundColor:'#fff',
   },
   user:{
@@ -23,6 +22,11 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop:50
   },
+  imageButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 20,
+  },
   ProfilePhoto:{
     marginLeft: 12,
     alignItems: 'center',
@@ -41,7 +45,7 @@ textInput:{
     shadowOpacity: 0.3,
     shadowRadius: 3,
     marginTop: 6,
-    width: 350
+    width: "80%"
 },
 btnSalvar:{
   flexDirection: 'row',

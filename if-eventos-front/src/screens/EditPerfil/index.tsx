@@ -99,57 +99,56 @@ export default function EditPerfil() {
 
   
   
-return (
-  <View style={styles.container}>
-    <ScrollView>
-      <Header pageName="Editar Perfil" descricao="Personalize seu perfil." />
-      <View style={styles.user}>
-        <View>
-          <Text style={styles.editPerfilText}>Editar Perfil</Text>
+  return (
+    <View style={styles.container}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <Header pageName="Editar Perfil" descricao="Personalize seu perfil." />
+        <View style={styles.user}>
+          <View>
+            <Text style={styles.editPerfilText}>Editar Perfil</Text>
+          </View>
+  
+          {/* Botão para alterar a foto do usuário */}
+          <TouchableOpacity onPress={handleSelectImage} style={styles.imageButton}>
+            {imagePath ? (
+              <Image source={{ uri: imagePath }} style={styles.userImage} />
+            ) : (
+              <Image source={{ uri: api.getUri() + image }} style={styles.userImage} />
+            )}
+            <Text style={{ color: 'black', textAlign: 'center', marginLeft: 5}}>Alterar Imagem</Text>
+          </TouchableOpacity>
+  
+          {/* Inputs para receber os novos valores */}
+          <View style={{ justifyContent: 'center', alignSelf: 'center', marginTop: 30 }}>
+            <TextInput
+              style={styles.textInput}
+              placeholder="Novo Nome"
+              value={newName}
+              onChangeText={(text) => setNewName(text)}
+            />
+            <TextInput
+              style={styles.textInput}
+              placeholder="Novo Telefone"
+              value={newPhone}
+              onChangeText={(text) => setNewPhone(text)}
+            />
+            <TextInput
+              style={styles.textInput}
+              placeholder="Novo Email"
+              value={newEmail}
+              onChangeText={(text) => setNewEmail(text)}
+            />
+          </View>
+  
+          {/* Botão para salvar alterações */}
+          <TouchableOpacity onPress={handleUpdateProfile} style={styles.btnSalvar}>
+            <Ionicons name="checkmark" size={20} color="white" />
+            <Text style={{ color: 'white', textAlign: 'center', marginLeft: 5, marginBottom:60 }}>Salvar Alterações</Text>
+          </TouchableOpacity>
+          
         </View>
-
-        {/* Botão para alterar a foto do usuário*/}
-        <TouchableOpacity onPress={handleSelectImage}>
-          {/*   */}
-          {imagePath ? (
-            <Image source={{ uri: imagePath }} style={styles.userImage} />
-          ) : (
-            <Image source={{ uri: api.getUri() + image }} style={styles.userImage} />
-          )}
-        </TouchableOpacity>
-
-
-          {/* Inputs para receber os novos valores do editPerfil*/}
-        <View style={{ justifyContent: 'center', alignSelf: 'center', marginTop: 30 }}>
-          <TextInput
-            style={styles.textInput}
-            placeholder="Novo Nome"
-            value={newName}
-            onChangeText={(text) => setNewName(text)}
-          />
-          <TextInput
-            style={styles.textInput}
-            placeholder="Novo Telefone"
-            value={newPhone}
-            onChangeText={(text) => setNewPhone(text)}
-          />
-          <TextInput
-            style={styles.textInput}
-            placeholder="Novo Email"
-            value={newEmail}
-            onChangeText={(text) => setNewEmail(text)}
-          />
-        </View>
-
-          {/* Botão para chamar a função de salvar as atualizações*/}
-        <TouchableOpacity onPress={handleUpdateProfile} style={styles.btnSalvar}>
-          <Ionicons name="checkmark" size={20} color="white" />
-          <Text style={{ color: 'white', textAlign: 'center', marginLeft: 5 }}>Salvar Alterações</Text>
-        </TouchableOpacity>
-        
-      </View>
-    </ScrollView>
-    <Footer />
-  </View>
-);
+      </ScrollView>
+      <Footer />
+    </View>
+  );
 }
