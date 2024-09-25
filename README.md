@@ -11,8 +11,8 @@ npm i
 
 - Crie um arquivo .env na raiz da aplicação:
 ```
-SECRET=
-SALT=
+SECRET=segredodaaplicacao
+SALT=10
 ```
 Procure o arquivo .env-example para ter uma ideia do que atribuir as variáveis.
 
